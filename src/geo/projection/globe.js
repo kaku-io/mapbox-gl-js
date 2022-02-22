@@ -3,7 +3,7 @@ import {mat4, vec3, vec4} from 'gl-matrix';
 import {Ray} from '../../util/primitives.js';
 import EXTENT from '../../data/extent.js';
 import LngLat from '../lng_lat.js';
-import {degToRad, radToDeg, getColumn, shortestAngle} from '../../util/util.js';
+import {degToRad, radToDeg, getColumn, shortestAngle, clamp} from '../../util/util.js';
 import MercatorCoordinate, {
     lngFromMercatorX,
     latFromMercatorY,
@@ -114,15 +114,28 @@ export default class Globe extends Mercator {
         vec4.scale(point1, point1, 1 / point1[3]);
 
         const p0p1 = vec3.sub([], point1, point0);
-        const direction = vec3.normalize([], p0p1);
+        let dir = vec3.normalize([], p0p1);
 
-        // Compute globe origo in world space
+        // Find closest point on the sphere to the ray. This is a bit more involving operation
+        // if the ray is not intersecting with the sphere. In this scenario we'll "clamp" the ray
+        // to the surface of the sphere, ie. find a tangent vector that originates from the camera position
         const m = tr.globeMatrix;
         const globeCenter = [m[12], m[13], m[14]];
+        const p0toCenter = vec3.sub([], globeCenter, point0);
+        const centerDir = vec3.normalize([], p0toCenter);
         const radius = tr.worldSize / (2.0 * Math.PI);
 
+        // Find the tangent vector by interpolating between a direction vector towards the globe center
+        // and a direction vector towards the screen coordinate
+        const origoTangentAngle = Math.asin(radius / vec3.length(p0toCenter));
+        const origoDirAngle = Math.acos(vec3.dot(centerDir, dir));
+
+        if (origoTangentAngle < origoDirAngle) {
+            dir = vec3.normalize([], vec3.lerp([], centerDir, dir, clamp(origoTangentAngle / origoDirAngle, 0, 1)));
+        }
+
         const pointOnGlobe = [];
-        const ray = new Ray(point0, direction);
+        const ray = new Ray(point0, dir);
 
         ray.closestPointOnSphere(globeCenter, radius, pointOnGlobe);
 
@@ -142,7 +155,7 @@ export default class Globe extends Mercator {
         lng = tr.center.lng + shortestAngle(tr.center.lng, lng);
 
         const mx = mercatorXfromLng(lng);
-        const my = mercatorYfromLat(lat);
+        const my = clamp(mercatorYfromLat(lat), 0, 1);
 
         return new MercatorCoordinate(mx, my);
     }
