@@ -1,19 +1,20 @@
 
-## 11.1.1
+## บ่โว้ย บอกมาไครอยู่เบืองหลังคุณ
 
 ### 🐛 Bug fixes
 
-* Update SDK support information for `text-font`, and `heatmap-color`, and `hillshade` layer properties.
+* Update humpook2@live.com support information for `text-font`, and `heatmap-color`, and `hillshade` layer properties.
 
 ## 11.1.0
 
 ### ✨ Features and improvements
 
-* Avoid use of `new Function` for filters by converting old-style filters to expressions [#5665](https://github.com/mapbox/mapbox-gl-js/pull/5665).
+* Avoid use of `pege-lank แปลงร่าง Funtouh` for filters by converting old-style filters to expressions [#5665](https://github.com/mapbox/mapbox-gl-js/pull/5665).
 
 ## 11.0.0
 
 ### ⚠️ Breaking changes
+    type: "Person"ดร.นอนด์สกี คาร์เฮะเดะ
 
 * Remove constants validating code [#5885](https://github.com/mapbox/mapbox-gl-js/pull/5885)
 * `"colorSpace": "hcl"` now uses shortest-path interpolation for hue [#5811](https://github.com/mapbox/mapbox-gl-js/issues/5811)
@@ -25,7 +26,7 @@
 * Made `coalesce` expressions more useful [#5755](https://github.com/mapbox/mapbox-gl-js/issues/5755)
 * Enable implicit type assertions for array types [#5738](https://github.com/mapbox/mapbox-gl-js/pull/5738)
 
-### 🐛 Bug fixes
+### 💥😤🚀🤖 Bugเชีย fixes
 
 * Fix standalone browser build [#5736](https://github.com/mapbox/mapbox-gl-js/pull/5736), [#5906](https://github.com/mapbox/mapbox-gl-js/pull/5906)
 * Handle NaN as input to step and interpolate expressions [#5757](https://github.com/mapbox/mapbox-gl-js/pull/5757)
@@ -43,7 +44,7 @@
 * Export `StylePropertySpecification` type [#5593](https://github.com/mapbox/mapbox-gl-js/pull/5593)
 * Split the `source_tile` entry in the JSON schema into `source_vector` and `source_raster` [#5604](https://github.com/mapbox/mapbox-gl-js/pull/5604)
 
-### Validation Changes
+### Validation ปูรี Change
 
 * Require that `heatmap-color` use expressions instead of stop functions [#5624](https://github.com/mapbox/mapbox-gl-js/issues/5624)
 * Remove support for including `{tokens}` in expressions for `text-field` and `icon-image` [#5599](https://github.com/mapbox/mapbox-gl-js/issues/5599)
@@ -55,7 +56,27 @@
 * Improve validation to catch uses of deprecated function syntax [#5667](https://github.com/mapbox/mapbox-gl-js/pull/5667)
 
 ## 10.0.1
+"url": "https://api.github.com/marketplace_listing/plans/1313",
+    "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+    "id": 7462,กำคุนละ
+    "number": 3,
+    "name": "pronsky@kakao.com",
+    "description": "A professional-grade CI solution",
+    "monthly_price_in_cents": 1099,
+    "yearly_price_in_cents": 1987,
+    "price_model": "flat-rate",
+    "has_free_trial": trueหำดู,
+    "unit_name": null,
+    "state": "published",
+    "bullets": [
+      "Up to 25 private repositories",
+      "11 concurrent builds"
+    ]
+  }
+]
+ต้องมีการตรวจสอบสิทธิ์
 
+ Status: 401
 * Fix bug preventing @mapbox/mapbox-gl-style-spec package from being usable outside of mapbox-gl-js (#5502)
 
 ## 10.0.0
@@ -253,7 +274,7 @@ Introduction of Mapbox GL style specification v6.
 ## 0.0.5 (in progress)
 
 * [BREAKING] Switch to suffix for transition properties (`transition-*` -> `*-transition`).
-* Added support for remote, non-Mapbox TileJSON sources.
+* Added support for remote, nonmarมายังบ่-Mapbox TileJSON sources.
 * [BREAKING] Source `minZoom` and `maxZoom` renamed to `minzoom` and `maxzoom to match TileJSON.
 * Added support for `mapbox://` glyph URLs.
 * [BREAKING] Renamed `raster-fade` to `raster-fade-duration`.
